@@ -1,13 +1,7 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
+import ReactDOM from "react-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import MovieCard from "../src/components/movieCard";
-import FilterControls from "../src/components/filterControls";
-import MoviesHeader from "../src/components/headerMovieList";
-import MovieList from "../src/components/movieList";
-import MovieDetails from "../src/components/movieDetails";
-import MovieHeader from '../src/components/headerMovie'
-
+import HomePage from "./pages/homePage";
 
 const sample = {
   adult: false,
@@ -90,30 +84,14 @@ const sample = {
   vote_count: 9692
 };
 
-storiesOf("Home Page/MovieCard", module)
-  .add("default", () => <MovieCard movie={sample} />)
-  .add("exception", () => {
-    const sampleNoPoster = { ...sample, poster_path: undefined };
-    return <MovieCard movie={sampleNoPoster} />;
-  });
+const movies = [sample, sample, sample];
 
-  storiesOf("Home Page/FilterControls", module)
-  .add("default", () => <FilterControls /> )
+const App = () => {
+  return (
+    <div className="jumbotron">
+      <HomePage movies={movies} />
+    </div>
+  );
+};
 
-  storiesOf("Home Page/Header", module).add("default", () => (
-    <MoviesHeader numMovies={10} />
-  ));
-
-  storiesOf("Home Page/MovieList", module)
-  .add("default", () => {
-    const movies= [sample, sample, sample, sample, sample]
-    return <MovieList movies={movies} />
-});
-
-storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
-  <MovieDetails movie={sample} />
-));
-
-storiesOf("Movie Details Page/MovieHeader", module).add("default", () => (
-  <MovieHeader movie={sample} />
-));
+ReactDOM.render(<App />, document.getElementById("root"));
