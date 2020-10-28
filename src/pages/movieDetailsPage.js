@@ -14,7 +14,7 @@ const MoviePage = props => {
       setMovie(movie);
     })
   }, [id])
-
+  
   return (
     <>
       {movie ? (
