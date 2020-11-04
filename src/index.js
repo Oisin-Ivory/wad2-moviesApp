@@ -6,22 +6,39 @@ import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'
 import MoviesContextProvider from "./contexts/moviesContext";
+import GenresContextProvider from "./contexts/genresContext";
 
 const App = () => {
   return (
-   <BrowserRouter>
-      <div className="jumbotron">
-        <SiteHeader /> 
-        <div className="container-fluid">
-          <MoviesContextProvider>     {/* NEW  */}
-            <Switch>    
-               . . . . as before . . . . 
-           </Switch>
-          </MoviesContextProvider>     {/* NEW */}
-        </div>
+    <BrowserRouter>
+    <div className="jumbotron">
+      <div className="container-fluid">
+        <ul className="navbar-nav text-black">
+          <li className="nav-item">
+            <Link className="nav-link " to="/">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link " to="/movies/favorites">
+              Favorites
+            </Link>
+          </li>
+        </ul>
+        <MoviesContextProvider>
+        <GenresContextProvider>
+        <Switch>
+          <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+          <Route path="/movies/:id" component={MoviePage} />
+          <Route path="/" component={HomePage} />
+          <Redirect from="*" to="/" />
+        </Switch>
+        </GenresContextProvider>
+        </MoviesContextProvider>
       </div>
-    </BrowserRouter>
-    );
+    </div>
+  </BrowserRouter>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
