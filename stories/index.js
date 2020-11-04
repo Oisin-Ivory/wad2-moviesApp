@@ -11,6 +11,7 @@ import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
+import MovieReviews from "../src/components/movieReviews";
 
 const sample = {
   adult: false,
@@ -123,9 +124,9 @@ storiesOf("Home Page/FilterControls", module)
     <FilterControls onUserInput={action("button-click")} numMovies={10} />
   ));
 
-storiesOf("Home Page/Header", module).add("default", () => (
-  <MoviesHeader title="All Movies" numMovies={10} />
-));
+  storiesOf("Home Page/Header", module).add("default", () => (
+    <MoviesHeader title="All Movies" numMovies={10} />
+  ));
 
 storiesOf("Home Page/MovieList", module)
   .addDecorator(story => (
@@ -143,12 +144,21 @@ storiesOf("Home Page/MovieList", module)
     );
   });
 
-storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
-  <MovieDetails movie={sample} />
-));
+  storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
+    <MovieDetails movie={sample} />
+  ));
 
-storiesOf("Movie Details Page/MovieHeader", module)
+  storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
+
+  storiesOf("Movie Reviews/Preview", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <MovieReviews movie={sample} />);
+
+  
+  
