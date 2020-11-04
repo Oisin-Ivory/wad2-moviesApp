@@ -6,7 +6,7 @@ const AddToWatchLater = ({ movie }) => {
 
   const handleAddToWatchLater = e => {
     e.preventDefault();
-    context.ddToWatchLater(movie.id);
+    context.addToWatchLater(movie.id);
   };
   return (
     <button
