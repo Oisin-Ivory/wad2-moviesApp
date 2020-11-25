@@ -11,7 +11,7 @@ const AddToWatchLater = ({ movie }) => {
   return (
     <button
       type="button"
-      className="btn w-100 btn-primary"
+      className="btn btn-outline-secondary"
       onClick={handleAddToWatchLater}
     >
       Add to Watch Later

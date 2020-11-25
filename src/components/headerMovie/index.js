@@ -4,13 +4,13 @@ import "../../globals/fontawesome";
 
 const MovieHeader = ({ movie }) => {
   return (
-    <div className="row">
+    <div className="row"style={{color:"white"}}>
       <div className="col-6 offset-3">
         <h2>
           {movie.title}
           {"  "}
-          <a href={movie.homepage}>
-            <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
+          <a href={movie.homepage} >
+            <FontAwesomeIcon style={{color:"#363F4D"}} icon={["fas", "home"]} size="1x" />
           </a>
         </h2>
       </div>

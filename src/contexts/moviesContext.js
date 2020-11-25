@@ -14,15 +14,15 @@ const reducer = (state, action) => {
         };
     case "add-watchlater":
       return {
-        movies: state.movies.map((m) =>
+        upcoming: state.upcoming.map((m) =>
           m.id === action.payload.movie.id ? { ...m, watchlater: true } : m
         ),
-        upcoming: [...state.upcoming],
+        movies: [...state.movies],
       };
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming] };
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies] };
+      return { upcoming: action.payload.upcoming, movies: [...state.movies] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -46,8 +46,8 @@ const MoviesContextProvider = (props) => {
   };
 
   const addToWatchLater = (movieId) => {
-    const index = state.movies.map((m) => m.id).indexOf(movieId);
-    dispatch({ type: "add-watchlater", payload: { movie: state.movies[index] } });
+    const index = state.upcoming.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "add-watchlater", payload: { movie: state.upcoming[index] } });
   };
 
   const addReview = (movie, review) => {
@@ -62,8 +62,8 @@ const MoviesContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    getUpComingMovies().then((movies) => {
-      dispatch({ type: "load-upcoming", payload: { movies } });
+    getUpComingMovies().then((upcoming) => {
+      dispatch({ type: "load-upcoming", payload: { upcoming } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

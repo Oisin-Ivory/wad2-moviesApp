@@ -8,7 +8,7 @@ const MovieCard = ({movie, action}) => {
 
   return (
     <div className="col-sm-3">
-      <div className="card  bg-white">
+      <div className="card text-white bg-dark" style={{paddingTop:15}}>
       <Link to={`/movies/${movie.id}`}>
         <img
           className="card-img-tag center "
@@ -23,11 +23,11 @@ const MovieCard = ({movie, action}) => {
         <div className="card-body">
           <h4 className="card-title ">{movie.title}</h4>
           <p>
-            <FontAwesomeIcon icon={["fas", "calendar"]} />
+            <FontAwesomeIcon style={{color:"#5ea374"}} icon={["fas", "calendar"]} />
             <span> {movie.release_date}</span>
           </p>
           <p>
-            <FontAwesomeIcon icon={["fas", "star"]} />
+            <FontAwesomeIcon style={{color:"#e1d667"}} icon={["fas", "star"]} />
             <span> {movie.vote_average}</span>
           </p>
         </div>

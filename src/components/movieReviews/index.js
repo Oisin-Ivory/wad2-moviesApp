@@ -12,7 +12,7 @@ export default ({ movie }) => {
     });
   }, []);
   return (
-    <table className="table table-striped table-bordered table-hover">
+    <table style={{color:"white"}} className="table table-dark table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col">Author</th>

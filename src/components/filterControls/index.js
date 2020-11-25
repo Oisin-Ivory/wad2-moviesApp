@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
+import { faRubleSign } from "@fortawesome/free-solid-svg-icons";
 
 const FilterControls = props => {
   const context = useContext(GenresContext);
@@ -17,7 +18,7 @@ const FilterControls = props => {
   };
 
   return (
-    <div className="row bg-warning">
+    <div className="row rounded" style={{backgroundColor:"#363F4D"}}>
       <div className="col-md-12">
         <h4>
           <span>List Filtering:</span>
