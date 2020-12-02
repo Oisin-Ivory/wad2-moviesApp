@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./movieDetails.css";
+import { getRecommendations } from "../../api/tmdb-api";
+import { excerpt } from "../../util";
+import Movie from "../recommendedCard/";
 
-export default ({ movie }) => {
+export default ({ movie}) => {
+  const [recommendeds, setRecommended] = useState([]);
+
+
+  useEffect(() => {
+    getRecommendations(movie.id).then(recommendeds => {
+      setRecommended(recommendeds);
+    });
+  }, []);
+
+
+  function sleep(ms){
+    while(ms < 100){
+      ms++;
+    }
+    reloadMovieCards();
+  }
+  const movieCards = recommendeds.map(m => (
+    <Movie key={m.id} movie={m}/>
+  ));
+
+  function reloadMovieCards(){
+    console.log("REFRESHING");
+    getRecommendations(movie.id).then(recommendeds => {
+      setRecommended(recommendeds);
+    });
+  }
+
   return (
+    
     <>
       
     <div style={{color:"white"}}>
@@ -59,7 +90,16 @@ export default ({ movie }) => {
             </tr>
           </tbody>
         </table>
+        <div style={{marginBottom:15}}>
+        <h2>Similar Movies</h2>
+        <div>
+        <div onClick={sleep(100)} className="row rounded movies" style={{backgroundColor:"#3B3B3B"}}>{movieCards}</div>
+        </div>
+        
       </div>
+      </div>
+      
     </>
-  );
-};
+  )};
+
+
