@@ -2,21 +2,21 @@ import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 import {Button } from 'semantic-ui-react'
 
-const AddToWatchLaterTop = ({ movie }) => {
+const AddToWatchLaterTopRatedMovies = ({ movie }) => {
   const context = useContext(MoviesContext);
 
-  const handleAddToWatchLaterTop = e => {
+  const handleAddToWatchLater = e => {
     e.preventDefault();
-    context.addToWatchLaterTop(movie.id);
+    context.AddToWatchLaterTopRatedMovies(movie.id);
   };
   return (
     <Button
     inverted color='violet'
-      onClick={handleAddToWatchLaterTop}
+      onClick={handleAddToWatchLater}
     >
       Add to Watch Later
     </Button>
   );
 };
 
-export default AddToWatchLaterTop;
+export default AddToWatchLaterTopRatedMovies;
