@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import "./movieCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Card,Icon, Image } from 'semantic-ui-react'
+
 
 const MovieCard = ({movie, action}) => {
 
   return (
-    <div className="col-sm-3">
-      <div className="card text-white bg-dark" style={{paddingTop:15}}>
+    <Card id="movieDisplay">
       <Link to={`/movies/${movie.id}`}>
-        <img
+        <Image size='medium' rounded 
           className="card-img-tag center "
           alt={movie.title}
           src={
@@ -20,22 +21,21 @@ const MovieCard = ({movie, action}) => {
           }
         />
         </Link>
-        <div className="card-body">
-          <h4 className="card-title ">{movie.title}</h4>
-          <p>
-            <FontAwesomeIcon style={{color:"#5ea374"}} icon={["fas", "calendar"]} />
+        <Card.Content>
+          <Card.Header id="movieDisplayHeader"><h4 className="card-title ">{movie.title}</h4></Card.Header>
+          <Card.Description>
+          <Icon name='calendar alternate outline' color = 'green'/>
             <span> {movie.release_date}</span>
-          </p>
-          <p>
-            <FontAwesomeIcon style={{color:"#e1d667"}} icon={["fas", "star"]} />
+
+          <Icon name='star' color = 'yellow'/>
             <span> {movie.vote_average}</span>
-          </p>
-        </div>
+
+          </Card.Description>
+        </Card.Content>
         <div className="card-footer">
            {action(movie)}
         </div>
-      </div>
-    </div>
+    </Card>
   );
 };
 

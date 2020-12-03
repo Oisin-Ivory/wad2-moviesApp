@@ -1,35 +1,35 @@
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
+import {Card,Flag,Container,Segment,Menu,Header,Icon} from 'semantic-ui-react'
+
 
 const SiteHeader = () => {
+
   return (
-    <nav className="navbar  navbar-light fixed-top  bg-dark ">
+    	<nav className="navbar  navbar-light fixed-top  bg-dark ">
       <nav className="navbar-brand text-white">
         <Link className=" text-white" to="/">
           TMDB Client
         </Link>
       </nav>
-      <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "video"]}
-        size="3x"
-      />
+      <Icon name="video" size='large'></Icon>
       <span className="navbar-text text-light">
         For Movie Enthusiast
       </span>
-      <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "film"]}
-        size="3x"
-      />
+      <Icon name="film" size='large'></Icon>
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
-          <li className="nav-item">
+        <li className="nav-item">
             <Link className="nav-link text-white" to="/">
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/toprated">
+              Top Rated
             </Link>
           </li>
           <li className="nav-item">
@@ -50,7 +50,8 @@ const SiteHeader = () => {
         </ul>
       </nav>
     </nav>
+	
   );
 };
 
-export default SiteHeader;
+export default SiteHeader ;

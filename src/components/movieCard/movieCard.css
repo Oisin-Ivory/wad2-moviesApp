@@ -18,3 +18,10 @@ p {
 .card-title {
   text-align: center
 }
+
+#movieDisplay{
+  background-color: #272727;
+}
+#movieDisplayHeader{
+  color: white;
+}

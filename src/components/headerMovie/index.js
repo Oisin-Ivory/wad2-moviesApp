@@ -1,20 +1,26 @@
 import React from "react";
+import "./headerMovie.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
-
+import {Icon,Grid,Header} from 'semantic-ui-react'
 const MovieHeader = ({ movie }) => {
   return (
-    <div className="row"style={{color:"white"}}>
-      <div className="col-6 offset-3">
-        <h2>
-          {movie.title}
+  
+    <Grid>
+    <Grid.Row>
+    <Grid.Column width={3}>
+    </Grid.Column>
+    <Grid.Column width={4}>
+      <Header as="h2" id="heading">
+    {movie.title}
           {"  "}
           <a href={movie.homepage} >
-            <FontAwesomeIcon style={{color:"#363F4D"}} icon={["fas", "home"]} size="1x" />
+          <Icon name='globe'/>
           </a>
-        </h2>
-      </div>
-    </div>
+    </Header>
+    </Grid.Column>
+    </Grid.Row>
+    </Grid>
   );
 };
 
