@@ -5,3 +5,11 @@
 button.reset {
     margin-left: 20px;
 }
+#errortext{
+    color:rgb(128, 55, 55);
+    font-weight: bolder;
+}
+
+h3{
+    color: white;
+}

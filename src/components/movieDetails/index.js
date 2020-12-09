@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./movieDetails.css";
 import { getRecommendations } from "../../api/tmdb-api";
-import { excerpt } from "../../util";
 import Movie from "../recommendedCard/";
 import {Card,Flag,Container,Segment,Grid,Divider,Header,Icon} from 'semantic-ui-react'
 
@@ -102,7 +101,7 @@ export default ({ movie}) => {
     <Divider vertical><span>Details</span></Divider>
     </Segment>
     <Divider horizontal><span><h2>Similar Movies</h2></span></Divider>
-    <Card.Group onClick={sleep(100)}>{movieCards}</Card.Group>
+    {<Card.Group onClick={sleep(100)}>{movieCards}</Card.Group>}
 
     </>
   )};

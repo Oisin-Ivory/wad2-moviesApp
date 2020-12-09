@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./movieCard.css";
 import "../../globals/fontawesome";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Card,Icon, Image } from 'semantic-ui-react'
+import {Card,Icon, Image, Rating } from 'semantic-ui-react'
 
 
 const MovieCard = ({movie, action}) => {
@@ -27,14 +26,14 @@ const MovieCard = ({movie, action}) => {
           <Icon name='calendar alternate outline' color = 'green'/>
             <span> {movie.release_date}</span>
 
-          <Icon name='star' color = 'yellow'/>
-            <span> {movie.vote_average}</span>
-
+          
+            <span> <Rating disabled icon='star' defaultRating={movie.vote_average} maxRating={10} />
+          </span>
+            <br></br><br></br>
+            {action(movie)}
           </Card.Description>
         </Card.Content>
-        <div className="card-footer">
-           {action(movie)}
-        </div>
+
     </Card>
   );
 };

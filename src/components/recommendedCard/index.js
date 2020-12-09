@@ -2,13 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./recommendedCard.css";
 import "../../globals/fontawesome";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Card,Icon, Image } from 'semantic-ui-react'
+import {Card,Icon, Image,Reveal, Segment,Container,Header,Button,Divider } from 'semantic-ui-react'
 
-const RecommendedCard = ({movie, action}) => {
+const RecommendedCard = ({movie}) => {
   return (
     <Card id="movieDisplay">
-    <Link to={`/movies/${movie.id}`}>
+    
+      
+
+
+<Reveal animated='move'>
+    <Reveal.Content visible>
+      <Link to={`/movies/${movie.id}`}>
       <Image size='medium' rounded 
         className="card-img-tag center "
         alt={movie.title}
@@ -19,18 +24,39 @@ const RecommendedCard = ({movie, action}) => {
         }
       />
       </Link>
-      <Card.Content>
-        <Card.Header id="movieDisplayHeader"><h4 className="card-title ">{movie.title}</h4></Card.Header>
-        <Card.Description>
-        <Icon name='calendar alternate outline' color = 'green'/>
-          <span> {movie.release_date}</span>
-
-        <Icon name='star' color = 'yellow'/>
-          <span> {movie.vote_average}</span>
-
+    </Reveal.Content>
+    <Reveal.Content hidden>
+      <Card.Content >
+        <Segment id="movieDisplay">
+        
+        <Card.Header id="movieDisplayHeader"><h2 className="card-title ">{movie.title}</h2></Card.Header>
+        <Divider horizontal></Divider>
+        <Card.Description >
+        <Container textAlign='left' id="movieDisplayHeader">
+                    
+          <Icon name='star' color = 'yellow'/>
+          <span>Rating: {movie.vote_average}</span>
+          <br></br>
+          <Icon name='calendar alternate outline' color = 'green'/>
+          <span>Release Date: {movie.release_date}</span>
+          <br></br><br></br>
+          <Container id="briefOverview">
+          <Header id="movieDisplayHeader" as='h2'>Overview</Header>
+          {movie.overview}
+          </Container>
+        </Container>
+        <br></br><br></br>
+        <Link to={`/movies/${movie.id}`} style={{marginLeft:25}} >
+          <Button basic inverted color='green' >
+           View Movie Page
+          </Button>
+        </Link>
         </Card.Description>
+        </Segment>
       </Card.Content>
-  </Card>
+    </Reveal.Content>
+  </Reveal>
+    </Card>
   );
 };
 
