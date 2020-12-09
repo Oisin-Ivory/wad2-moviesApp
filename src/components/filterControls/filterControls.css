@@ -9,3 +9,21 @@ h4 {
   input {
     margin-right: 100px;
   }
+
+  #menu{
+    color: white; 
+    background-color: #343a40;
+  }
+
+  #menuitem{
+    color: white; 
+    background-color: #343a40;
+  }
+  #select{
+    color: white; 
+    background-color: #343a40;
+  }
+  #genre{
+    color: white; 
+    background-color: #343a40;
+  }

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
 import { faRubleSign } from "@fortawesome/free-solid-svg-icons";
-import {Card,Flag,Container,Segment,Grid,Divider,Header,Icon} from 'semantic-ui-react'
+import {Menu,Input,Dropdown,Select,Grid,Divider,Header,Icon} from 'semantic-ui-react'
 
 const FilterControls = props => {
   const context = useContext(GenresContext);
@@ -18,29 +18,51 @@ const FilterControls = props => {
     handleChange(e, "genre", e.target.value);
   };
 
+
+ 
+  function GenreOptions(){
+    const genreOptions = []
+    context.genres.map(genre => {
+        genreOptions.push({key:genre.id,text:genre.name,value:genre.id})
+    })
+    return genreOptions;
+  };
+
   return (
-    <div className="row rounded" style={{backgroundColor:"#363F4D"}}>
-      <div className="col-md-12">
-        <h4>
-          <span>List Filtering:</span>
-          <input
-            type="text"
-            placeholder="Title Search"
-            onChange={handleTextChange}
-          />
-          <span>Genre:</span>
-          <select id="genre" onChange={handleGenreChange}>
-            {context.genres.map(genre => {
-              return (
-                <option key={genre.id} value={genre.id}>
-                  {genre.name}
-                </option>
-              );
-            })}
-          </select>
-        </h4>
-      </div>
-    </div>
+    <Menu id = "menu" >
+
+    <Menu.Item id = "menuitem">
+      <Icon name="filter"/>
+    </Menu.Item>
+
+    <Menu.Item id = "menuitem">
+      Filter By:
+    </Menu.Item>
+    <Menu.Item id = "menuitem">
+      Name
+    </Menu.Item>
+
+    <Menu.Item id = "menuitem">
+    <Input  type="text" icon='film' onChange={handleTextChange} iconPosition='left' placeholder='Search movies...' />
+     
+    </Menu.Item>
+
+    <Menu.Item id = "menuitem">
+      Genres
+    </Menu.Item>
+
+    <Menu.Item id = "menuitem">
+    <select id="genre" onChange={handleGenreChange}>
+        {context.genres.map(genre => {
+          return (
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
+          );
+        })}
+      </select>
+    </Menu.Item>
+</Menu>
   );
 };
 
