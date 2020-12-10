@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./recommendedCard.css";
 import "../../globals/fontawesome";
 import {Card,Icon, Image,Reveal, Segment,Container,Header,Button,Divider } from 'semantic-ui-react'
+import { noAuto } from "@fortawesome/fontawesome-svg-core";
 
 const RecommendedCard = ({movie}) => {
   return (
@@ -13,6 +14,7 @@ const RecommendedCard = ({movie}) => {
 
 <Reveal animated='move'>
     <Reveal.Content visible>
+      <div style={{height:450,width:300}}>
       <Link to={`/movies/${movie.id}`}>
       <Image size='medium' rounded 
         className="card-img-tag center "
@@ -24,6 +26,7 @@ const RecommendedCard = ({movie}) => {
         }
       />
       </Link>
+      </div>
     </Reveal.Content>
     <Reveal.Content hidden>
       <Card.Content >
