@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./movieDetails.css";
 import { getRecommendations } from "../../api/tmdb-api";
 import Movie from "../recommendedCard/";
+
+
 import {Card,Flag,Container,Segment,Grid,Divider,Header,Icon} from 'semantic-ui-react'
 
 export default ({ movie}) => {

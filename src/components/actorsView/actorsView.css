@@ -1,0 +1,21 @@
+#actorContainer{
+    padding-left: auto;
+    padding-right: auto;
+    background-color: #262626;
+    color:white;
+    margin: 0; /* To remove default bottom margin */ 
+    padding: 0; /* To remove default left padding */
+}
+#actorList{
+    margin: 0; /* To remove default bottom margin */ 
+    padding: 0; /* To remove default left padding */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    color:white;
+}
+#actorListElement{
+    margin: 0; /* To remove default bottom margin */ 
+    margin-top: 10px;
+    padding: 0; /* To remove default left padding */
+    color:white;
+}

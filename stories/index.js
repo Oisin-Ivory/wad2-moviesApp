@@ -13,6 +13,7 @@ import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
 import MovieReviews from "../src/components/movieReviews";
 import RecommendedCard from "../src/components/recommendedCard";
+import Actors from "../src/components/actorsView";
 import "semantic-ui-css/semantic.min.css";
 import {Card,Icon, Image,Reveal, Segment,Container,Header,Button,Divider } from 'semantic-ui-react'
 
@@ -163,6 +164,13 @@ storiesOf("Home Page/MovieList", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <RecommendedCard movie={sample} />);
+
+  storiesOf("Movie Details Page/Actors", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <Actors movie={sample} />);
+
 
   storiesOf("Movie Reviews/Preview", module)
   .addDecorator(story => (

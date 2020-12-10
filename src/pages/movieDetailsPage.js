@@ -3,6 +3,7 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
+import ActorsView from "../components/actorsView";
 import useMovie from "../hooks/useMovie";
 import {Button, Container,Divider } from 'semantic-ui-react'
 const MoviePage = props => {
@@ -16,7 +17,7 @@ const MoviePage = props => {
           <MovieDetails movie={movie} />
         </PageTemplate>
         <div className="row">
-        
+        <ActorsView movie={movie}  {...props}/>
           <Container textAlign="center">
           <Divider horizontal><span><h2>Reviews</h2></span></Divider>
             {!props.history.location.pathname.endsWith("/reviews") ? (
