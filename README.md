@@ -20,8 +20,6 @@ Name: ... Oisín Ivory ...
 
 ..... List the additional TMDB endpoints used in your assignment, e.g.
 
-+ https://api.themoviedb.org/3/movie/${id} - get detailed information on a specific movie. 
-+ https://api.themoviedb.org/3/genre/movie/list - get a list of movie genres
 + https://api.themoviedb.org/3/movie/top_rated - get a list of top rated movies
 + https://api.themoviedb.org/3/movie/${id}/recommendations - get a list of recommended movies based on a specific movie
 + https://api.themoviedb.org/3/movie/${id}/credits - get a list of a movies cast for a specific movie
@@ -35,8 +33,9 @@ Name: ... Oisín Ivory ...
 
 ![][stories0]
 ![][stories1]
+Recommended Card Hovered Over
 ![][stories2]
-
+Recommended Card Not Hovered Over
 ### UI Design.
 
 ...... Insert screenshots of the new/modified views you have added to the Movies Fan app. Include a caption for each one clearly stating its purpose and any user interaction it supports ........
